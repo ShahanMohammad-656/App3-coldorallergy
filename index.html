@@ -79,7 +79,15 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Cold or Allergies?</h1>
 </div>
-	
+	var allergy_count = 0;
+var cold_count = 0;
+
+function allergyAdd(){
+allergy_count = allergy_count + 1;
+}
+function coldAdd(){
+cold_count = cold_count + 1;
+}
 <div id="content" class="w3-container">
 	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
 	
@@ -97,7 +105,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	<div id="content" class="w3-container">
         <p>Are your eyes feeling watery or itchy?</p>  
 	<a href= "#two" class="w3-btn w3-black"> Yes</a>
+	<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
 	<a href= "#two" class="w3-btn w3-black"> No</a>
+	<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No</a>
     	</div>
 </div>
 
@@ -109,7 +119,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 	<p>Do you have a fever?</p>
 	<a href= "#three" class="w3-btn w3-black"> Yes</a>
+	<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
 	<a href= "#three" class="w3-btn w3-black"> No</a>
+	<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No</a>
 	</div>
 </div>	
 
@@ -121,7 +133,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you have a sore throat?</p>
 		<a href= "#four" class="w3-btn w3-black"> Yes</a>
+		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
 		<a href= "#four" class="w3-btn w3-black"> No</a>
+		<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No</a>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
