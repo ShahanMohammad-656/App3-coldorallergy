@@ -18,10 +18,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+This code aims to quiz the user on a few symptoms they may be having to create a diagnosis of either a cold or allergies.
  
 Known Issues:
-blah, blah, blah, blah
+the divisions may be absent, but it should be running fine.
 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
@@ -38,11 +38,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
     var allergy_count = 0;
     var cold_count = 0;
+//these set the variables initially
 
     function allergyAdd() {
         allergy_count += 25;
         saveCounts();
     }
+//rather than converting the count, i just made the counts the percent initially
 
     function coldAdd() {
         cold_count += 25;
@@ -53,6 +55,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         localStorage.setItem("allergy_count", allergy_count);
         localStorage.setItem("cold_count", cold_count);
     }
+//this is necessary or else the variables reset.
 
     function calculateResults() {
         var allergy_count = parseInt(localStorage.getItem("allergy_count")) || 0;
@@ -61,6 +64,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var resultText = document.getElementById("resultText");
         resultText.innerHTML = "Probability it is allergies = " + allergy_count + "%<br> Probability it is a cold = " + cold_count + "%";
     }
+//we use this to actually write out the command on the results page, linking this command and the results page in the process.
 </script>
 
 
@@ -111,6 +115,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         <p>Are your eyes feeling watery or itchy?</p>  
 	<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
 	<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No</a>
+//each click here will add percentage to the respective category and send the user to the next page. We repeat this four times.
     	</div>
 </div>
 
@@ -125,7 +130,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black"> No</a>
 	</div>
 </div>	
-
+//note that I screwed up here at first because I was missing a div. It's fixed now. Whoops.
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
@@ -146,6 +151,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p>Are your symptoms seasonal or chronic?</p>
 		<a href="#results" onclick="allergyAdd(); calculateResults();" class="w3-btn w3-black"> Seasonal</a>
 		<a href="#results" onclick="coldAdd(); calculateResults();" class="w3-btn w3-black"> Chronic</a>
+	//upon clicking the last button, the results will be parsed and show on the results page. If this is absent, the app will need to be refreshed to get your results.
 	</div>
 </div>
 
@@ -156,6 +162,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     </div>
 
     <p id="resultText"></p>
+//this refers to the linked page at the script settings way up top.
 
     <script>
         calculateResults();
