@@ -36,20 +36,32 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
    </head> 
 
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+    var allergy_count = 0;
+    var cold_count = 0;
 
+    function allergyAdd() {
+        allergy_count += 25;
+        saveCounts();
+    }
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 25;
+    function coldAdd() {
+        cold_count += 25;
+        saveCounts();
+    }
 
-        }
+    function saveCounts() {
+        localStorage.setItem("allergy_count", allergy_count);
+        localStorage.setItem("cold_count", cold_count);
+    }
 
-        function coldAdd(){
-            cold_count = cold_count + 25;
-        }
+    function calculateResults() {
+        var allergy_count = parseInt(localStorage.getItem("allergy_count")) || 0;
+        var cold_count = parseInt(localStorage.getItem("cold_count")) || 0;
 
-  </script>
+        var resultText = document.getElementById("resultText");
+        resultText.innerHTML = "Probability it is allergies = " + allergy_count + "%<br> Probability it is a cold = " + cold_count + "%";
+    }
+</script>
 
 
 
@@ -145,10 +157,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     <p id="resultText"></p> 
 
-    <script>
-        var resultText = document.getElementById("resultText");
-        resultText.innerHTML = "Probability it is allergies = " + allergy_count + "%<br> Probability it is a cold = " + cold_count + "%";
-    </script>
 </div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
